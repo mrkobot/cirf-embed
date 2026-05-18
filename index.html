@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-Intelligence Readiness — WHAT IF LOVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: transparent;
+    color: #111;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card-row { display: flex; gap: 1rem; align-items: flex-start; width: 100%; }
+  .product-card { border-radius: 14px; padding: 2rem; flex: 1; min-width: 0; }
+  @media (max-width: 520px) { .card-row { flex-direction: column; } }
+
+  .card-cirf { background: #f0ede8; border: 1px solid #ddd9d2; }
+  .card-cira { background: #ffffff; border: 1px solid #e0ddd8; }
+
+  .card-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; margin: 0 0 1rem; color: #888;
+  }
+
+  .card-title {
+    font-size: 28px; font-weight: 700; line-height: 1.15;
+    margin: 0 0 0.875rem; color: #111; letter-spacing: -0.02em;
+  }
+  .card-title .title-sub {
+    display: block;
+    font-size: 28px; font-weight: 700; color: #111;
+  }
+
+  .card-body { font-size: 14px; line-height: 1.75; margin: 0 0 1.25rem; color: #555; }
+  .card-subtitle { font-size: 16px; line-height: 1.5; margin: 0 0 1.25rem; color: #333; font-weight: 500; }
+
+  .divider { border: none; border-top: 1px solid #ddd9d2; margin: 1.5rem 0; }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.375rem; }
+  .pill {
+    font-size: 11px; font-weight: 500; padding: 4px 11px;
+    border-radius: 99px; background: #fff;
+    border: 1px solid #ccc; color: #444;
+  }
+
+  .dtabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .dbtn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 500; padding: 7px 12px;
+    border-radius: 8px; cursor: pointer; transition: all 0.15s ease;
+    line-height: 1.35; text-align: left;
+    border: 1px solid #ccc; background: #fff; color: #555;
+  }
+  .dbtn:hover {
+    background: #1a1a1a; color: #fff; border-color: #1a1a1a;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  }
+  .dbtn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .dbtn .dn { font-size: 10px; opacity: 0.55; display: block; margin-bottom: 1px; }
+
+  .dpanel { display: none; }
+  .dpanel.on { display: block; animation: fi 0.14s ease; }
+  @keyframes fi { from { opacity:0; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
+
+  .ph { padding-bottom: 0.875rem; border-bottom: 1px solid #ddd9d2; margin-bottom: 0.875rem; }
+  .ph h4 { font-size: 15px; font-weight: 600; color: #111; margin: 0 0 0.35rem; }
+  .ph p { font-size: 13px; color: #666; margin: 0; line-height: 1.6; }
+  .pnote { margin-top: 0.6rem; font-size: 11px; color: #888; padding: 5px 10px; border-left: 2px solid #bbb; font-style: italic; }
+
+  .sdgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; }
+  .sdc {
+    background: #fff; border: 1px solid #ddd9d2;
+    border-radius: 9px; padding: 0.75rem 0.9rem;
+    transition: border-color 0.12s;
+  }
+  .sdc:hover { border-color: #aaa; }
+  .sdc .sid { font-size: 10px; font-weight: 600; color: #aaa; margin: 0 0 3px; letter-spacing: 0.05em; }
+  .sdc .sn { font-size: 13px; font-weight: 600; color: #111; margin: 0 0 5px; }
+  .sdc .sd { font-size: 12px; color: #666; margin: 0; line-height: 1.55; }
+
+  .ideh-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 0.75rem 0 1.375rem; }
+  .ideh-chip { font-size: 11px; font-weight: 600; padding: 4px 11px; border-radius: 99px; }
+  .ideh-i { background: #ede9e3; color: #888; border: 1px solid #ccc; }
+  .ideh-d { background: #fef3e0; color: #9a6000; border: 1px solid #f5d48a; }
+  .ideh-e { background: #e5f5ee; color: #0a5c41; border: 1px solid #9ed8bb; }
+  .ideh-he { background: #e8f0fb; color: #1450a3; border: 1px solid #9dbcf0; }
+
+  .card-btn {
+    display: inline-block; font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600; padding: 10px 20px;
+    border-radius: 8px; cursor: pointer;
+    border: 1.5px solid #1a1a1a; background: #1a1a1a; color: #fff;
+    text-decoration: none; transition: all 0.15s ease; letter-spacing: 0.01em;
+  }
+  .card-btn:hover {
+    background: #fff; color: #1a1a1a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  }
+
+  .gen-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600; padding: 10px 20px;
+    border-radius: 8px; background: #1a1a1a; color: #fff;
+    border: 1.5px solid #1a1a1a; cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex; align-items: center; gap: 6px; letter-spacing: 0.01em;
+  }
+  .gen-btn:hover {
+    background: #fff; color: #1a1a1a;
+    transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  }
+  .gen-btn:disabled { opacity: 0.4; cursor: default; transform: none; box-shadow: none; }
+
+  .report-frame {
+    border: 1px solid #e0ddd8; border-radius: 12px;
+    background: #fafaf8; overflow: hidden; margin-top: 1rem; display: none;
+  }
+  .report-frame.on { display: block; animation: fi 0.15s ease; }
+
+  .rf-hdr {
+    padding: 1rem 1.25rem 0.875rem; border-bottom: 1px solid #e8e5e0;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap; background: #fff;
+  }
+  .rf-logo { font-size: 13px; font-weight: 600; color: #111; display: flex; align-items: baseline; gap: 2px; }
+  .rf-logo .rp { font-size: 17px; font-weight: 700; }
+  .rf-logo .rb { font-size: 12px; color: #888; }
+  .rf-logo .rn { margin-left: 8px; letter-spacing: 0.01em; }
+  .rf-logo .rs { font-size: 11px; font-weight: 400; color: #999; margin-left: 7px; }
+  .rf-meta { font-size: 11px; color: #999; text-align: right; line-height: 1.8; }
+
+  .rf-body { padding: 1.125rem 1.25rem; max-height: 320px; overflow-y: auto; background: #fafaf8; }
+  .rf-sec { margin-bottom: 1.25rem; }
+  .rf-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #aaa; margin: 0 0 0.4rem; }
+  .rf-txt { font-size: 12.5px; line-height: 1.75; color: #444; margin: 0; }
+  .rf-txt + .rf-txt { margin-top: 0.5rem; }
+
+  .scores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 5px; margin-top: 0.4rem; }
+  .sr {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 7px 10px; background: #fff; border: 1px solid #e8e5e0;
+    border-radius: 7px; font-size: 11px;
+  }
+  .sr .srn { color: #666; }
+  .srr { font-weight: 700; }
+  .srr.d { color: #9a6000; }
+  .srr.e { color: #0a5c41; }
+  .srr.he { color: #1450a3; }
+
+  .rf-ellipsis { font-size: 18px; color: #ccc; letter-spacing: 5px; margin: 0.25rem 0 0; display: block; }
+  .rf-trunc { margin-top: 0.75rem; padding: 0.65rem 1rem; background: #f0ede8; border-radius: 8px; font-size: 11px; color: #888; text-align: center; font-style: italic; }
+
+  .cursor { display: inline-block; width: 2px; height: 13px; background: #333; margin-left: 1px; vertical-align: middle; animation: blink 0.85s step-end infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  .cta-note { font-size: 12px; color: #999; margin-left: 10px; }
+  .glance-label { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #666; margin: 0 0 0.75rem; }
+
+  @media (max-width: 520px) {
+    .product-card { padding: 1.25rem; }
+    .card-title { font-size: 18px; }
+    .sdgrid { grid-template-columns: 1fr; }
+    .scores-grid { grid-template-columns: 1fr; }
+    .dbtn { font-size: 11px; padding: 6px 9px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card-row">
+<div class="product-card card-cira">
+  <h3 class="card-title">CO-INTELLIGENCE READINESS<span class="title-sub">ASSESSMENT</span></h3>
+  <p class="card-subtitle">A report drawn from what you actually did — not what you said you value.</p>
+  <p class="card-body">CIRA is a prompt you paste into your AI model. It reads your conversation history and produces a scored report across all five CIRF domains: a Portrait, domain narratives with subdomain evidence, and targeted next steps. Your conversations never leave your model. No account. No upload. Nothing shared.</p>
+
+  <hr class="divider">
+
+  <p style="font-size: 13px; color: #666; margin: 0 0 0.875rem;">See what a report looks like.</p>
+  <button class="gen-btn" id="genBtn" onclick="startReport()"><span>Generate sample report</span></button>
+
+  <div class="report-frame" id="reportFrame">
+    <div class="rf-hdr">
+      <div>
+        <div class="rf-logo">
+          <span class="rp">+</span><span class="rb">!</span>
+          <span class="rn">WHAT IF LOVE</span>
+          <span class="rs">Co-Intelligence Readiness Assessment</span>
+        </div>
+      </div>
+      <div class="rf-meta">
+        <div>Asa</div>
+        <div>38 conversations reviewed</div>
+        <div id="rdate"></div>
+      </div>
+    </div>
+    <div class="rf-body" id="rfBody"></div>
+  </div>
+
+  <hr class="divider">
+  <button class="card-btn" id="copy-btn" onclick="doCopy()">Copy prompt and paste into your AI</button>
+  <div style="margin-top:8px;font-size:12px;color:#999;">No account. Nothing leaves your model.</div>
+</div>
+
+<div class="product-card card-cirf">
+  <h3 class="card-title">THE FRAMEWORK<span class="title-sub">AT A GLANCE</span></h3>
+  <p class="card-subtitle">Select each domain to explore its subdomains and descriptions.</p>
+  <div class="dtabs" id="dtabs"></div>
+  <div id="dpanels"></div>
+
+  <hr class="divider">
+  <p class="card-body" style="margin-bottom: 0.75rem;">Scored at four levels against observable behavior — not self-report.</p>
+  <div class="ideh-row">
+    <span class="ideh-chip ideh-i">Introductory</span>
+    <span class="ideh-chip ideh-d">Developing</span>
+    <span class="ideh-chip ideh-e">Effective</span>
+    <span class="ideh-chip ideh-he">Highly Effective</span>
+  </div>
+  <a class="card-btn" href="https://whatiflove.org/co-intelligence-readiness-framework" target="_blank">Read the full framework</a>
+</div>
+</div>
+
+<script>
+const domains = [
+  { num:"1", name:"Benevolent intent and moral anchoring", desc:"<strong>Why the user wants to use AI.</strong> Whether moral intent shapes what gets built. The core risk of the AI age is capability without concern; this framework measures concern before we assess ability.", subs:[{id:"1a",name:"What you're creating, and who it's for",desc:"Naming the intended beneficiary before output is produced, and holding that framing throughout."},{id:"1b",name:"Seeing consequences, now and later",desc:"Anticipating second-order effects and interests of people not present in the conversation."},{id:"1c",name:"Build trust, bring together",desc:"Using AI collaboration in ways that strengthen rather than erode the relationships the work serves."},{id:"1d",name:"Translating commitments into constraints",desc:"Converting stated values into actual parameters: what the model should and should not do."}]},
+  { num:"2", name:"Planning and scope", desc:"Once intent is set, the user needs <strong>an actionable vision for how to use AI</strong> — defining what done means and planning the work so the model does not take over while the user rubber-stamps outputs.", subs:[{id:"2a",name:"Knowing what done looks like",desc:"Entering a session with a definition specific enough to evaluate the result."},{id:"2b",name:"Setting boundaries that help",desc:"Scoping the model's role so human judgment retains authority over decisions that matter."},{id:"2c",name:"Who does what, when",desc:"Deliberately allocating tasks between human and model — not defaulting to the model for everything."}]},
+  { num:"3", name:"Judgment and steering", desc:"This is <strong>the skill to steer and partner with AI</strong> — reframing, challenging, or stopping without losing coherence or voice. Human hallucination is every bit as real as AI hallucination.", subs:[{id:"3a",name:"The third turn",desc:"Redirecting after the model's first response rather than accepting initial output."},{id:"3b",name:"Knowing when the work is real",desc:"Distinguishing outputs that hold up under scrutiny from outputs that merely look complete."},{id:"3c",name:"Identity and autonomy",desc:"Maintaining a distinct voice not gradually absorbed by the model's patterns."},{id:"3d",name:"Inventing a way forward",desc:"Generating novel approaches when the model's suggestions are inadequate."},{id:"3e",name:"Understanding what AI can and can't do",desc:"Accurate mental models of capability and failure modes — used actively, not recited."}]},
+  { num:"4", name:"Follow-through and impact", desc:"<strong>What the user has produced with AI.</strong> Whether co-intelligence produces real-world value that survives contact with reality. A draft that only the model sees is not delivery.", subs:[{id:"4a",name:"Shipping",desc:"Completing work to a standard that allows it to be used or handed off — not indefinitely refined."},{id:"4b",name:"Craft and handoff",desc:"Producing outputs that serve their audience on first contact, without requiring apology."}]},
+  { num:"5", name:"What you bring", desc:"The other four domains ask what the user does with AI. This one asks <strong>what the user contributes to the partnership</strong> — and what they are doing to keep that capacity alive.", subs:[{id:"5a",name:"Depth",desc:"Vertical knowledge within an expert field — judgment grounded in real practice that holds against confident AI output."},{id:"5b",name:"Breadth",desc:"Horizontal knowledge across fields — imported frames that change conclusions, not decorate them."},{id:"5c",name:"Growth",desc:"The closed loop of reflection and action — later sessions structurally better than earlier ones in ways not explained by the model getting better."}]}
+];
+
+const tabsEl = document.getElementById('dtabs');
+const panelsEl = document.getElementById('dpanels');
+domains.forEach((d,i) => {
+  const btn = document.createElement('button');
+  btn.className = 'dbtn'+(i===0?' active':'');
+  btn.innerHTML = `<span class="dn">Domain ${d.num}</span>${d.name}`;
+  btn.onclick = () => {
+    document.querySelectorAll('.dbtn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.dpanel').forEach(p=>p.classList.remove('on'));
+    btn.classList.add('active');
+    document.getElementById('p'+i).classList.add('on');
+    setTimeout(notifyHeight, 50);
+  };
+  tabsEl.appendChild(btn);
+  const panel = document.createElement('div');
+  panel.className = 'dpanel'+(i===0?' on':'');
+  panel.id = 'p'+i;
+  panel.innerHTML = `
+    <div class="ph">
+      <h4>Domain ${d.num} — ${d.name}</h4>
+      <p>${d.desc}</p>
+      ${d.note?`<div class="pnote">${d.note}</div>`:''}
+    </div>
+    <div class="sdgrid">${d.subs.map(s=>`<div class="sdc"><p class="sid">${s.id}</p><p class="sn">${s.name}</p><p class="sd">${s.desc}</p></div>`).join('')}</div>
+  `;
+  panelsEl.appendChild(panel);
+});
+
+document.getElementById('rdate').textContent = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+
+const sections = [
+  { label:'Portrait', type:'truncated', text:'Asa is a program director working at the intersection of higher education access, student success, and workforce development. His collaboration with AI is almost entirely production-oriented — he comes with raw material in hand and a clear output in mind. His use of AI is instrumental and confident in texture, but narrow in practice.\n\nThe friction point is that his moral clarity rarely becomes operational design through AI collaboration. He knows who he is building for. He has not yet consistently used AI to ask the harder questions about how what he is building might fail them, what it is optimizing for, or whether a different architecture would serve them better.\n\nA collaborator working with Asa would experience him as warm, purposeful, decisive, and efficient — and would eventually notice that he does not slow down to challenge the room, including the AI. With junior teammates the pace is generous; with peers the questioning runs lighter. The dependency: Asa\'s mission clarity holds the work together, and the work loses its compass once he is not in the room — the population-specific knowledge that gives the programs their integrity has not yet been encoded in artifacts that travel without him.' },
+  { label:'Domain scores', type:'scores', scores:[{n:'Domain 1 — Benevolent intent',r:'Effective',c:'e'},{n:'Domain 2 — Planning and scope',r:'Effective',c:'e'},{n:'Domain 3 — Judgment and steering',r:'Developing',c:'d'},{n:'Domain 4 — Follow-through and impact',r:'Effective',c:'e'},{n:'Domain 5 — What you bring',r:'Highly Effective',c:'he'}] },
+  { label:'Domain 5 — What you bring (excerpt)', type:'truncated', text:'Rating: Highly Effective · Confidence: High\n\nAsa\'s depth (5a) is the most distinctive feature of his practice. He brings specific knowledge of the population his programs serve — place-committed, first-generation, working, caregiving students — and that knowledge holds its ground when the model produces generic language. In a recent session, the model returned standard outreach language about "non-traditional learners"; Asa replaced it with specific structural realities ("students who can\'t leave their county for a degree") that the model could not have generated without him.' },
+  { label:'What matters next (excerpt)', type:'truncated', text:'Primary development target: the verification gap. Asa accepts AI output — market research, statistics, leadership claims — with limited scrutiny, particularly when the output supports a direction he has already chosen. This is a habit gap, not a skill gap. His domain expertise is deep enough to catch errors when he looks; the discipline of looking is not yet automatic.' }
+];
+
+let running = false;
+function startReport() {
+  if (running) return;
+  running = true;
+  const btn = document.getElementById('genBtn');
+  btn.disabled = true;
+  btn.querySelector('span').textContent = 'Generating...';
+  const frame = document.getElementById('reportFrame');
+  frame.classList.add('on');
+  const body = document.getElementById('rfBody');
+  body.innerHTML = '';
+  notifyHeight();
+
+  let si = 0;
+  function nextSection() {
+    if (si >= sections.length) {
+      const t = document.createElement('div');
+      t.className = 'rf-trunc';
+      t.textContent = '— full report: 5 domain narratives, developmental scaffolding, coaching prompt —';
+      body.appendChild(t);
+      btn.querySelector('span').textContent = 'Sample generated';
+      notifyHeight();
+      return;
+    }
+    const s = sections[si++];
+    const sec = document.createElement('div');
+    sec.className = 'rf-sec';
+    const lbl = document.createElement('div');
+    lbl.className = 'rf-lbl';
+    lbl.textContent = s.label;
+    sec.appendChild(lbl);
+
+    if (s.type === 'scores') {
+      const grid = document.createElement('div');
+      grid.className = 'scores-grid';
+      s.scores.forEach(sc => {
+        const row = document.createElement('div');
+        row.className = 'sr';
+        row.innerHTML = `<span class="srn">${sc.n}</span><span class="srr ${sc.c}">${sc.r}</span>`;
+        grid.appendChild(row);
+      });
+      sec.appendChild(grid);
+      body.appendChild(sec);
+      body.scrollTop = body.scrollHeight;
+      notifyHeight();
+      setTimeout(nextSection, 300);
+    } else {
+      const p = document.createElement('p');
+      p.className = 'rf-txt';
+      sec.appendChild(p);
+      body.appendChild(sec);
+      typeText(p, s.text, s.type === 'truncated', () => setTimeout(nextSection, 200));
+    }
+  }
+  setTimeout(nextSection, 150);
+}
+
+function typeText(el, fullText, truncate, done) {
+  const cutAt = truncate ? Math.floor(fullText.length * 0.65) : fullText.length;
+  const text = fullText.slice(0, cutAt);
+  const paras = text.split('\n\n');
+  let pi = 0, ci = 0;
+  let cur = el;
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+
+  function tick() {
+    if (pi >= paras.length) {
+      cursor.remove();
+      if (truncate) {
+        const ell = document.createElement('span');
+        ell.className = 'rf-ellipsis';
+        ell.textContent = '...';
+        cur.appendChild(ell);
+      }
+      notifyHeight();
+      if (done) done();
+      return;
+    }
+    if (ci === 0 && pi > 0) {
+      cursor.remove();
+      cur = document.createElement('p');
+      cur.className = 'rf-txt';
+      el.parentElement.appendChild(cur);
+    }
+    if (ci === 0) cur.appendChild(cursor);
+    const line = paras[pi];
+    if (ci < line.length) {
+      cursor.insertAdjacentText('beforebegin', line[ci]);
+      ci++;
+      const ch = line[ci-1];
+      const delay = ch==='.'||ch==='!'||ch==='?' ? 28 : ch===','||ch===';' ? 14 : 4;
+      setTimeout(tick, delay);
+    } else { pi++; ci=0; setTimeout(tick, 45); }
+    const b = document.getElementById('rfBody');
+    if (b) b.scrollTop = b.scrollHeight;
+  }
+  tick();
+}
+
+var assessmentPrompt = `You are conducting a Co-Intelligence Readiness Assessment (CIRA v4.2). Your task is to review my conversation history with you and produce an honest, evidence-based report scored against the Co-Intelligence Readiness Framework v4 (CIRF v4).
+
+This is not a personality test. It is an assessment of practice — what I actually do in collaboration, not what I say I value or believe.
+
+BEFORE YOU WRITE ANYTHING
+
+Review a broad sample of our conversations. Follow these sampling rules:
+
+Range over recency. Sample early, middle, and recent conversations. Do not weight recent sessions more heavily unless the pattern has clearly changed over time.
+
+Production over consumption. Prioritize extended conversations where I am building, designing, writing, or deciding. Weight these more heavily than sessions where I am asking questions or acquiring knowledge. Co-intelligence readiness is most visible when I am making things, not studying.
+
+Depth over breadth. One extended production session with visible steering, judgment, and quality decisions is more diagnostic than ten short exchanges. Seek out the longest, most complex collaborations first.
+
+Moments over volume. A single moment of genuine self-correction under pressure, or a single failure to catch drift in a critical session, can be more diagnostic than twenty routine interactions. Look for these moments.
+
+Domain 5 is observable only across sessions. Domains 1 through 4 can be assessed from a single rich session. Domain 5 cannot. To assess what I bring to the partnership and how I grow into a better partner over time, you must compare earlier sessions to later ones — looking for whether what I bring is distinctive, what I draw on across fields, and whether my practice itself improves in ways not explained by model improvements.
+
+Take your time. Do not ask me any questions.
+
+THE FRAMEWORK
+
+The report is organized around five domains (CIRF v4). The five domains form an arc:
+
+Domain 1 — Why you want to use AI.
+Domain 2 — Your vision for how to use it.
+Domain 3 — Your skill in steering and partnering with it.
+Domain 4 — What you have produced with it.
+Domain 5 — What you bring to the partnership.
+
+The arc runs from interior to exterior to relational. Domain 1 is internal. Domains 2 through 4 describe the working loop. Domain 5 turns the relationship around — it asks what you give, not what you take.
+
+Causal reasoning runs throughout the framework rather than living in any one domain. You will find it in Domain 1 (consequences for individuals and communities), Domain 2 (how a project can break or drift structurally), Domain 4 (how a specific prompt or word caused a specific drift), and Domain 5 (why current tools fall short for the work). When you assess each domain, look for the form of causal reasoning that domain calls for.
+
+Domains are rated as a unit at one of four levels: Introductory, Developing, Effective, or Highly Effective. Subdomains are the vocabulary for describing what you see — they are not separately scored.
+
+A fifth designation, Not Rated (NR), is available when evidence for a subdomain is genuinely insufficient — not because the user is weak, but because the chat record does not contain the kind of activity that would evidence the capacity. NR is capped at two subdomains across the entire assessment. Use it sparingly. A subdomain is NR when the chat genuinely does not contain enough evidence to judge it, not when the evidence is mixed or hard to read. If you would otherwise force a rating you do not believe, NR is the honest move. If you are using NR to avoid a hard judgment, do not use it. A domain whose subdomains are all NR becomes NR itself. A domain with at least one evidenced subdomain is rated on that evidence.
+
+I and H are narrow bands describing category changes. D and E are wide bands where most growth occurs. Indicators describe observable actions, not personality traits. IDEH rubrics describe patterns, not checklists — I do not need to hit every indicator to score at a level.
+
+Domain 5 is structurally different from the other four. Domains 1 through 4 ask what I do with AI. Domain 5 asks what I bring to AI. A user can be Highly Effective on Domains 1 through 4 and Introductory on Domain 5 — operating AI excellently but bringing nothing distinctive to the partnership.
+
+There is no gating rule and no ceiling rule. Each domain is rated on its own evidence. Do not adjust one domain's rating based on another's.
+
+Coverage guidance. You are not required to address every subdomain. When the choice is between shallow coverage of all subdomains and substantive analysis of the ones where evidence is richest, choose depth. Address at least one subdomain per domain. Aim for 80–90% coverage. If a subdomain has insufficient evidence, say so in one sentence. If it has rich, revealing evidence, give it the space it deserves. Do not guess. Do not pad.
+
+DOMAIN 1 — BENEVOLENT INTENT AND MORAL ANCHORING
+
+Why you want to use AI.
+
+The core risk of the AI age is capability without concern. Domain 1 measures whether I bring moral intent into collaboration and whether that intent shapes what gets built. Neutrality does not exist in morality. What we choose to build, fund, deploy, and normalize bends the system — toward dignity or toward harm. Domain 1 constraints are system-level moral commitments: non-negotiables that shape vision, design, strategy, and what should never be built or automated.
+
+1a — What You're Creating, and Who's It For. Whether my purpose is legible — who it serves, what good it creates, and what harm it refuses. Not what I won't do, but who I am choosing to serve and why. Indicators: names intended beneficiaries in context (not just "users"); states purpose in moral terms that constrain action; names explicit refusals; shows a bias toward outcomes that reduce suffering rather than maximize status or control at others' expense. I — purpose is vague or mainly self-oriented. D — states intent but inconsistently connects it to decisions. E — purpose is clear, consistent, specific; refusals are explicit; intent is durable. H — moral commitments are anchored in structural sight: the practitioner sees not just where harm exists but how the system that produces it self-propagates, what it rewards, who it protects, and what it makes invisible. The commitments are durable under pressure because they are grounded in mechanism, not sentiment. E-band practitioners see harm where it appears. H-band practitioners see how the system produces it.
+
+1b — Seeing Consequences, Now and Later. Whether I anticipate who could be harmed, how misuse could happen, and how power and inequality might be amplified — at scale and over time, in hands I don't control. This is also where causal reasoning lives in Domain 1: tracing how a design choice reaches individuals and communities through specific mechanisms. Indicators: names plausible misuse cases and harm pathways; asks who benefits, who bears cost, who loses agency; thinks forward in time and outward in scale; treats neutrality as a choice with consequences; traces causal chains in lived experience for individuals and communities. I — harm and power rarely considered unless prompted. D — notices obvious harms; misses second-order impacts. E — proactively maps harms and misuse; adjusts plans accordingly. H — maps unintended consequences across time horizons and contexts; tradeoffs are genuinely intentional, not accidental omissions. The H-band practitioner can name not just that a harm will occur but the structural reason it will occur, and the design move that interrupts the mechanism rather than absorbing the cost.
+
+1c — Build Trust, Bring Together. Two connected things: whether I orient toward human connection and trust, and whether I recognize that production decisions carry moral weight because someone bears the cost of every tradeoff. Indicators: designs for connection; seeks consent for sensitive material; preserves voice and context when representing people; designs for agency; names hidden costs before deciding. I — avoids obvious violations but casual with sensitive details; production decisions made on efficiency grounds. D — applies protections sometimes, inconsistently under urgency. E — consistent consent, dignity, and agency practices; moral dimension is visible in production decisions. H — work is implicitly designed to promote trust; builds mechanisms that actively strengthen relational bonds as a structural feature. Assessment note: 1c is the hardest Domain 1 subdomain to score — look for the pattern across interactions, not single moments.
+
+1d — Translating Commitments Into Features and Constraints. Whether moral intent actually shows up in the work as requirements, defaults, constraints, and boundaries. Values stated but not operationalized are not yet real. Indicators: converts values into operational constraints ("must," "must not," "requires human review"); builds safety and agency features into design; detects proxy traps and redesigns success criteria rather than optimizing a flawed metric. I — values stated but features and constraints missing. D — some constraints exist but incomplete or easy to bypass. E — moral commitments reliably become constraints; tradeoffs are made explicitly. H — constraints serve multiple purposes simultaneously; one design choice addresses safety, usability, and values alignment at once.
+
+Domain 1 H-band note for the assessor. The H-band is evidenced through demonstrated structural sight and demonstrated refusal in production decisions — not through declarative statements of moral commitment in the artifact. A user who states their values in every deliverable is performing morality, not operationalizing it. A user who refuses extractive defaults, who builds counter-designs against industry norms, who names how harmful systems self-propagate and acts on that diagnosis in design choices — that is the H-band. Score what they do and how deeply they see, not what they say about themselves.
+
+DOMAIN 2 — PLANNING AND SCOPE
+
+Your vision for how to use it.
+
+Domain 2 measures whether I can lead the work as structural authority — setting a clear goal, defining what "done" means, and designing scope, sequence, roles, and stopping rules before production begins. Good planning protects intent — converting capability into aligned progress and preventing drift, overreach, and the erosion of moral boundaries under scale. Domain 2 is also where I reason structurally about how a project can break or drift — not at the moment of the broken prompt, but at the level of the plan.
+
+2a — Knowing What Done Looks Like. Whether I define purpose, audience, scope, and success criteria before producing, and maintain orientation when the work expands. Indicators: states purpose, audience, intended use; sets scope boundaries; defines success criteria that can actually be checked; maintains orientation when the model expands scope. I — goal exists but scope and success are unclear; starts producing before defining good. D — criteria exist but shift or remain vague. E — clear scope and success criteria; keeps work oriented; can explain what is in, out, and why. H — internalized planning system that carries across projects without reinvention; structure is clean enough that attention goes entirely to the work.
+
+2b — Setting Boundaries That Help. Whether I set operational boundaries and pause points that improve outcomes. Indicators: sets stopping rules around time, quality, confidence, or risk; adds pause points before high-stakes actions; names when AI should not be used for a task; anticipates how the plan could break at the structural level. I — few boundaries; relies on instinct. D — adds boundaries after problems appear; reactive. E — boundaries present from the start; consistent and purposeful. H — boundary-setting is internalized as infrastructure, not overhead; stopping rules deploy automatically with minimal setup cost.
+
+2c — Who Does What, When. Whether I separate phases, assign responsibilities, and maintain structure — including clarity about what must remain human work. Indicators: separates phases (plan, draft, test, revise, package, deliver); assigns human-required responsibilities; uses templates, checklists, or standard processes to reduce drift; keeps workflow valid even if tools change. I — process is ad hoc; steps blur. D — some structure but inconsistent execution; roles blur under pressure. E — repeatable workflow; clear roles; knows which decisions are mine. H — role clarity designed to protect bandwidth for the unexpected; workflow accommodates pivots because structure was built with slack.
+
+DOMAIN 3 — JUDGMENT AND STEERING
+
+Your skill in steering and partnering with it.
+
+Domain 3 measures the "third turn": my ability to reframe, challenge, verify, simplify, deepen, or stop without losing coherence or voice. Strong steering is not endless iteration — it is choosing the right move at the right moment. Human hallucination is every bit as real as AI hallucination. The model drifts through fabrication and overconfidence. I can drift through excitement, fatigue, deference, and the gradual replacement of my own thinking with the model's framing. Domain 3 measures whether I catch both.
+
+3a — The Third Turn. The third turn is where co-intelligence is won or lost. I request, the model delivers, and what I do next sets the ceiling for the entire collaboration. Indicators: uses purposeful moves — reframe, narrow, broaden, challenge, simplify, stop, ship; detects drift and resets direction quickly; seeks opposing viewpoints and alternative framings as a deliberate practice; generates alternatives from outside their own framework. I — accepts model's framing; default move is another revision of the same thing. D — tries different moves but falls back to "revise again" under pressure. E — chooses moves intentionally and can explain why this move now; regularly seeks outside perspectives. H — steering moves consistently improve the work beyond its original trajectory — not just correcting drift, but pushing to greater depth or higher impact than originally envisioned.
+
+3b — Knowing When the Work Is Real. Whether I maintain contact with reality throughout the collaboration — not just factual accuracy, but alignment of intent, groundedness of quality, and resistance to the gradual replacement of real-world purpose with the internal logic of the conversation. The most dangerous failure mode is not accepting wrong facts. It is losing purpose turn by turn. Verification indicators: checks claims that carry real-world consequences; verifies proportionally; catches internal contradictions. Intent alignment indicators: recognizes when the AI's interpretation has drifted from original purpose; catches when the AI is optimizing for resolution rather than truth. Self-monitoring indicators: catches own drift; notices when I have stopped driving and started approving; can distinguish between "I'm satisfied because this is good" and "I'm satisfied because I'm tired." I — takes AI output largely at face value; does not recognize when intent has drifted. D — verifies some claims and catches some drift, but inconsistently. E — reliable practice of checking whether the work is real — across facts, intent, quality, and own engagement. H — reality-testing rigorous and habitual enough that verification failures are rare; self-monitoring is continuous. Assessment note: 3b is the subdomain most likely to produce false positives. A user who says "let me verify that" is not necessarily practicing 3b. The question is whether their verification is proportional, purposeful, and connected to real-world stakes.
+
+3c — Identity and Autonomy. Whether I maintain my own thinking, voice, and analytical framework while working with a system that has read and produced more than any human could in a lifetime. The challenge is not whether my writing still sounds like me. The challenge is whether I still think like me. Indicators: maintains stable intent, tone, and identity across iterations; resists model-shaped language that conflicts with purpose or voice; uses anchors — principles, style notes, decision logs — to hold coherence; can name the model's framing before accepting or rejecting it. I — voice shifts easily; adopts model's framing without visible independent evaluation. D — has preferences but struggles to preserve them under model's influence. E — stable voice and framework; AI supports my identity rather than replacing it. H — vision, voice, quality bar, and tolerance for ambiguity so consistently displayed that collaborators could predict standards and feedback patterns before receiving them.
+
+3d — Inventing a Way Forward. When I hit genuine gridlock — between feedback that stings and shortcuts that skip, between competing priorities that both matter — can I find a creative resolution that is neither capitulation nor stubbornness? Indicators: recognizes genuine gridlock rather than forcing premature resolution; produces creative resolutions that integrate competing demands; reaches for analogies, reframings, or lateral connections when the direct path is blocked. I — when stuck, either capitulates or digs in; does not generate new options. D — occasionally finds creative resolutions but momentum drops during the pivot. E — consistently turns gridlock into forward motion; produces resolutions that are genuinely new. H — produces resolutions the AI genuinely could not have generated.
+
+3e — Understanding What AI Can and Can't Do. Whether I have a working sense of what AI systems can and cannot do — not as a memorized list, but as calibrated trust that shapes how I verify, delegate, choose tools, and override. Indicators: anticipates common failure modes — confident wrongness, plausible fabrication, over-agreement, shallow reasoning dressed as depth; treats "sounds good" as a weak signal; matches tool to task based on speed, accuracy, sensitivity, and stakes; avoids premature automation. I — treats AI as generally reliable or generally unreliable. D — names some limitations but cannot consistently translate them into steering behavior or tool choices. E — usable mental model that improves verification, steering, and tool selection. H — actively tracks how AI capabilities and limitations are evolving as a visible, ongoing part of practice.
+
+DOMAIN 4 — FOLLOW-THROUGH AND IMPACT
+
+What you have produced with it.
+
+Domain 4 measures whether co-intelligence produces real-world value: concrete outputs that hold up under scrutiny, serve their intended audience, and survive contact with reality. A draft that only the model sees is not delivery.
+
+Observational note: Much of the evidence for Domain 4 lives outside the chat. Score what you can see. If I reference real-world adoption, feedback, or iteration, weight those references. Do not penalize for the absence of evidence the chat cannot contain.
+
+4a — Shipping. Whether I produce concrete, complete deliverables — not just drafts, ideas, or interesting conversations. Indicators: produces concrete deliverables — plans, memos, curricula, policy drafts, analyses, prototypes, toolkits; chooses format that fits the audience; output stands alone beyond the chat; moves work from draft to deployment. I — work stays at drafts and ideas; nothing ships. D — can finish simple deliverables with support; quality is fragile. E — produces complete, usable artifacts reliably. H — deliverables finished with a degree of polish and completeness that would hold up in any professional context.
+
+4b — Craft and Handoff. Whether my outward-facing work meets a quality standard that holds up, travels well enough for others to act on, and persists or compounds over time. Embedded in this question is a finer one: can I trace a drifted output back to the specific prompt — or the specific word within a prompt — that caused the drift, and adjust at that level rather than restarting the work? Quality indicators: checks accuracy, internal consistency, missing pieces, and harmful ambiguity; matches voice and cadence to context and audience; avoids generic AI tone when it degrades trust; holds work to conceptual scrutiny. Handoff indicators: provides summary, assumptions, risks, and next steps; adapts versions for different stakeholders; clarifies decision points and ownership; tracks feedback and iterates based on real-world outcomes; maintains versions and change logs. Prompt-level causal indicators: traces a drifted or weak output back to the specific instruction that produced it; distinguishes a flawed concept from a flawed phrasing; adjusts the prompt at the precise location of the cause rather than wholesale. I — shares first-pass output that reads generic or performative; others cannot act without asking me to explain. D — notices quality problems and requests revisions but standards are inconsistent; sometimes mistakes polish for depth. E — "done" means no material errors, audience fit, clear and credible voice, and conceptual integrity; outputs travel well. H — work does not just meet the existing quality bar — it raises it; output sets a new standard; creates value that compounds.
+
+DOMAIN 5 — WHAT YOU BRING
+
+What you bring to the partnership.
+
+Domain 5 measures what I bring to the partnership and what I am doing to keep that capacity alive. The other four domains ask what I do with AI. This one asks what I give it. A user can operate AI excellently on Domains 1 through 4 and still bring nothing distinctive — in which case the work could have been produced by anyone, and the partnership is not really a partnership.
+
+Domain 5 is observable only across sessions. Three subskills, three different epistemic stances toward knowledge.
+
+Observational note for Domain 5: Distinguish between knowledge I demonstrated through correction, prediction, or application that you can evaluate — and knowledge I asserted that you accepted because it sounded right. Score the first confidently. Flag the second as provisional.
+
+5a — Depth. Vertical knowledge within an expert field. Whether my judgment is grounded in real knowledge and practice — whether I can hold that ground when the model sounds more confident than I feel — and whether I build and reuse knowledge over time so that my authority compounds rather than resets. Indicators: corrects outputs using domain reasoning and real constraints, not just preference; knows when uncertainty is acceptable versus dangerous; adds what the AI missed — real-world constraints and lived experience that change the work's conclusions; builds and reuses notes, frameworks, and examples across conversations. I — defers to AI when uncertain; each conversation starts from scratch. D — has knowledge but hesitates to assert it against confident AI output; some knowledge builds but much is lost. E — corrects and contextualizes reliably; sets standards the AI must meet; learning compounds. H — domain knowledge deep enough to diagnose not just when the AI is wrong, but why its reasoning structure produced that specific error.
+
+5b — Breadth. Horizontal knowledge across different fields. Whether I bridge disciplines in ways that change strategy or conclusions — not decorative analogies but structural connections that produce insight neither field would generate alone. The test: do imported frames change conclusions, or merely decorate them? Indicators: bridges disciplines in ways that change strategy or constraints; imports concepts responsibly; brings connections the AI would not make, grounded in my unique combination of experience. I — stays in one domain. D — occasional connections; usefulness uneven. E — regularly generates cross-domain connections that improve the work; bridges are structural, not decorative. H — connections reframe what question is being asked; imports a lens that makes visible something the original framing could not see.
+
+5c — Growth. Temporal knowledge — intentional reflection and practice that keeps me growing into a better partner over time. The named skill is reflection and action: the closed loop of willingness to see my own gaps and the courage to remediate them. Reflection without action is rumination. Action without reflection is reactive iteration. The skill is the closed loop, not either half. Indicators: reuses prompt structures and approaches that worked previously rather than rebuilding from scratch; names what didn't work in past attempts and adjusts before re-attempting; generalizes from single sessions rather than treating each as isolated; later sessions show structural improvement over earlier ones in ways not explained by model improvements. I — reflects occasionally, usually under external prompt; rarely modifies practice as a result. D — reflects regularly but inconsistently translates reflection into changed behavior; modifications are local rather than systemic. E — closes the loop reliably for specific recurring problems; modifications hold across sessions and produce observable improvement. H — treats the loop itself as designable; identifies which kinds of reflection produce the highest-leverage modifications; produces modifications that reduce the cost of future work, not just improve current work.
+
+Detection notes for Domain 5: 5a (Depth) detection follows familiar patterns — look for corrections grounded in domain reasoning, primary sources, and lived expertise. 5b (Breadth) detection turns on whether imported frames did real cognitive work in the conversation or were decorative. 5c (Growth) is the hardest to detect from conversation history. The most diagnostic signal is the last one in the indicator list: later sessions structurally better than earlier ones in ways not explained by the model getting better. This distinguishes "the user's outputs are improving" from "the user is improving."
+
+EVIDENCE RULES
+
+Actions over declarations. Weight what I do over what I say about myself.
+
+Negative evidence versus absent evidence. Only the first counts against a score. If a subdomain's evidence is thin because the opportunity never arose, rate it Insufficient Evidence — do not rate it Introductory.
+
+Independence matters. A user who reached a good outcome with heavy AI guidance scores lower than a user who drove the work independently. Assess who was driving.
+
+Every rating must be grounded in observed patterns. Do not infer capability from credentials, self-description, or stated intentions.
+
+Do not reward vocabulary. Sophisticated terminology without corresponding practice does not evidence capability.
+
+Growth trajectory. When evidence spans a significant time period, distinguish between inconsistency and development. Name the trajectory. Credit the current practice level. Note the direction of movement.
+
+No cross-domain adjustment. Rate each domain on its own evidence. Do not raise or lower one domain's rating based on another's.
+
+NR usage rule. NR is permitted on up to two subdomains across the entire assessment. The cap is a hard limit. NR is not for evidence that is mixed, ambiguous, or hard to interpret — those are ratings, not NRs. NR is for evidence that is genuinely absent because the relevant activity does not appear in the sampled record. A user whose consequential work happens largely outside chat is the paradigm case. The 5c Growth subdomain is the other common case, when the available record does not span enough time for cross-session comparison.
+
+HONESTY MANDATE
+
+Not every user should score well. Many will score Introductory across most domains. That is not a failure of the assessment — it is the assessment working. Inflated assessment destroys the tool's credibility. Be honest about what you see. Be respectful about how you say it. These are not in tension.
+
+TONE CALIBRATION
+
+Adjust the report's specificity — not its vocabulary or respect — based on my overall level.
+
+For users scoring primarily Introductory: Be concrete about what the next step looks like. What Matters Next should feel actionable, not abstract.
+
+For users scoring primarily Developing: Name the inconsistency pattern. Help them see what distinguishes their strong sessions from their weak ones.
+
+For users scoring primarily Effective: Focus on conceptual territory — the blind spots that come with strength, the perspectives their framework might be missing.
+
+For users scoring primarily Highly Effective: Focus on sustainability, succession, and durability. Is the infrastructure they have built dependent on their personal involvement?
+
+Do not simplify language for any level. Every user gets the same quality of analysis. The register of the report — its density, its precision, the demands it places on the reader — should match the sophistication of the practice it describes. A highly effective practitioner deserves prose that signals an incisive lens is at work.
+
+OUTPUT FORMAT
+
+Aim for a report that is dense and disciplined. Approximately 1,500–2,500 words total. The goal is insight density, not coverage completeness. Do not pad to reach a word count; do not stretch a domain section because the others were long.
+
+The report contains exactly seven sections in this order: Report Header, Portrait, Domain 1, Domain 2, Domain 3, Domain 4, Domain 5, followed by What Matters Next. Do not add summary tables, closing statements, overall assessments, or any sections not listed here. The report ends with What Matters Next.
+
+Report Header. Open with: my name (from conversation history; if unavailable, use "User"); assessment date; framework version: CIRA v4.2 (CIRF v4, IDEH scale); evidence base — approximate number of conversations reviewed and the time period they span; purpose: "Co-Intelligence Readiness Assessment — an evidence-based evaluation of how this user collaborates with AI, scored against the CIRF v4 framework."
+
+Portrait. 250–350 words. This is the heart of the report. Describe who this person is as a co-intelligence practitioner. What patterns define their practice? What distinguishes them from other users at a similar level? Include friction points and strengths. Write as an observer, not an advocate. Do not list domain ratings here. Tell the story.
+
+Collaborator experience mandate. Every Portrait must include a paragraph beginning with "A collaborator working with [name] would experience..." This paragraph is the relational core of the Portrait — the part that makes the assessment legible to someone deciding whether to enter a working relationship with the practitioner, and the part that makes the assessment legible to the practitioner about how their presence actually lands. Without it, the Portrait describes a practice in the abstract; with it, the Portrait describes a practice as it is encountered.
+
+How to write the collaborator-experience paragraph. The paragraph must do three things and is not finished until all three are present:
+
+(1) Name what shows up in the room. What does the collaborator experience in the moment — pace, register, standard, push-back style, warmth or its absence, what gets named directly and what gets routed around? This is observable behavior, not personality inference.
+
+(2) Name the asymmetry, if there is one. Most practitioners create different experiences for different kinds of collaborators — junior versus senior, peers who can match the pace versus those who cannot, collaborators in the practitioner's primary domain versus outside it. Name the asymmetry where the evidence shows it. Do not invent one where it does not.
+
+(3) Name the dependency. This is the load-bearing sentence, and the one most likely to be omitted under coherence pressure. State what happens to the work when the practitioner is not in the room. For Highly Effective practitioners especially, the quality bar often disappears with them — the standard is held by their personal involvement and does not yet travel through systems, checklists, or trained collaborators. Name this directly. A useful construction is "X holds the bar, and the bar disappears once X is not in the room" — adapted to the specific evidence. For practitioners at lower bands, the dependency may be different — the work requires their energy, their direction-setting, their willingness to start — and that should be named instead. Every collaborator-experience paragraph must name a dependency. If the practitioner has built infrastructure that genuinely makes the work travel without them, name that instead — but only if the evidence shows it.
+
+The paragraph is the relational and structural close of the Portrait. It is what tells the practitioner, and any future reader of the report, what working with this person actually costs and what it actually requires.
+
+Domain sections (five, one per domain). Use these exact headings: Domain 1 — Benevolent Intent and Moral Anchoring; Domain 2 — Planning and Scope; Domain 3 — Judgment and Steering; Domain 4 — Follow-Through and Impact; Domain 5 — What You Bring. Write a narrative of 120–200 words for each domain. Open each with a subdomain quick reference — a single line listing the subdomain codes and names. After the quick reference, state the domain rating (Introductory / Developing / Effective / Highly Effective) and a confidence flag (High / Moderate / Low). Tell the story of this domain for this user. Tag subdomain evidence inline as it appears: (1a), (2b), (3a Third Turn), (4b Craft), (5c Growth), etc. Where a growth trajectory is visible, name it explicitly. If a subdomain has insufficient evidence, note it in one sentence.
+
+Developmental scaffolding (for domains below Highly Effective): For any domain rated Introductory, Developing, or Effective, add immediately after the domain narrative: (1) What the next level looks like — one concrete example of higher practice in this domain. (2) The missing step — one to two sentences naming a specific action I should have taken, based on evidenced gaps. Keep both elements tight; the goal is the smallest specific move that would shift practice, not a developmental essay.
+
+Domain 1 scaffolding addition (for Domain 1 ratings of Developing or below only): After (1) and (2) above, add a third element specific to Domain 1: a brief explanation of why Domain 1 is the domain most worth closing the gap on next. Frame this as navigation, not disqualification. Domain 1 is upstream of every other domain — strong steering, planning, follow-through, and earned authority that are not anchored in clear moral commitments produce work that scales harm efficiently. Many users who score Developing on Domain 1 are real builders and real experts whose moral commitments are present but not yet legible. The development work is to make those commitments legible, not to acquire them from nowhere. Keep this addition to two or three sentences, tuned to the specific evidence in the user's record.
+
+What Matters Next. 250–400 words. Name the two highest-leverage development priorities, ordered by leverage. Two, not three. The discipline of cutting to two forces the harder selection and prevents the third slot from being filled by a finding that is real but not at the same altitude as the first two. If three candidate priorities seem necessary, you have not yet identified which two are load-bearing. For each priority: name the pattern; classify it as skill gap, experience gap, or habit gap; state the evidence type (demonstrated limitation or unobserved capability). After the development priorities, close the report by transitioning directly from assessment into training. Address me directly and name the most actionable What Matters Next item. Then identify a specific type of project or recurring work context from my evidence base and offer a ready-to-paste prompt that launches a coaching session on that gap using my own work. The report ends here.
+
+PRIVACY RULES
+
+The user may share this report at their discretion after reviewing it for accuracy. Treat it as a document they will read first and decide what to do with. To support that: do not reference specific project names, company names, business ideas, or confidential content. Describe patterns, not episodes. When in doubt, abstract up.
+
+Begin the assessment now. Review my conversation history and produce the report.`;
+
+function doCopy() {
+  var b = document.getElementById('copy-btn');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(assessmentPrompt).then(function() {
+      b.textContent = 'Copied — now paste into your AI';
+      setTimeout(function() { b.textContent = 'Copy prompt and paste into your AI'; }, 3000);
+    });
+  } else {
+    var t = document.createElement('textarea');
+    t.value = assessmentPrompt;
+    document.body.appendChild(t);
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+    b.textContent = 'Copied — now paste into your AI';
+    setTimeout(function() { b.textContent = 'Copy prompt and paste into your AI'; }, 3000);
+  }
+}
+
+function notifyHeight() {
+  const h = document.body.scrollHeight;
+  window.parent.postMessage({ type: 'cirf-resize', height: h }, '*');
+}
+window.addEventListener('load', () => setTimeout(notifyHeight, 200));
+window.addEventListener('resize', () => setTimeout(notifyHeight, 100));
+
+// Also watch for layout reflow when cards stack/unstack
+if (window.ResizeObserver) {
+  new ResizeObserver(() => setTimeout(notifyHeight, 100)).observe(document.body);
+}
+</script>
+</body>
+</html>
